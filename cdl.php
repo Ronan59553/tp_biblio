@@ -84,6 +84,42 @@
                     <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
                 </div>
             </div>
+
+            <!-- Book Card 4 -->
+            <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Aventure" data-author="Serranouille">
+                <img src="images/4.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-2">Le monde de disney</h2>
+                    <p class="text-gray-700 mb-2">Auteur: <span class="font-semibold">Serranouille</span></p>
+                    <p class="text-gray-700 mb-2">Date de publication: <span class="font-semibold">1985</span></p>
+                    <p class="text-gray-700 mb-2">Genre: <span class="font-semibold">Fantastique</span></p>
+                    <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
+                </div>
+            </div>
+
+            <!-- Book Card 5 -->
+            <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Science-fiction" data-author="Serranon">
+                <img src="images/5.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-2">Dinotirex</h2>
+                    <p class="text-gray-700 mb-2">Auteur: <span class="font-semibold">Serranon</span></p>
+                    <p class="text-gray-700 mb-2">Date de publication: <span class="font-semibold">2015</span></p>
+                    <p class="text-gray-700 mb-2">Genre: <span class="font-semibold">Science-fiction</span></p>
+                    <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
+                </div>
+            </div>
+
+            <!-- Book Card 6 -->
+            <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Roman" data-author="Serranow">
+                <img src="images/6.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-2">The 1000</h2>
+                    <p class="text-gray-700 mb-2">Auteur: <span class="font-semibold">Serranow</span></p>
+                    <p class="text-gray-700 mb-2">Date de publication: <span class="font-semibold">2010</span></p>
+                    <p class="text-gray-700 mb-2">Genre: <span class="font-semibold">Roman</span></p>
+                    <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
+                </div>
+            </div>
         </div>
     </main>
 
