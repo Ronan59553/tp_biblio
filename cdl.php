@@ -13,9 +13,15 @@
 
     <!-- Header -->
     <header class="bg-blue-600 text-white py-6 shadow-lg">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl font-bold">Bibliothèque du pauvres</h1>
-            <p class="text-lg mt-2">Consultez les livres disponibles (désolé on a que 3 livres d'un auteur pas foufou)</p>
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold">Bibliothèque du pauvres</h1>
+                <p class="text-lg mt-2">Consultez les livres disponibles (désolé on a que 3 livres d'un auteur pas foufou)</p>
+            </div>
+            <!-- Bouton de déconnexion -->
+            <a href="index.php" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                Déconnexion
+            </a>
         </div>
     </header>
 
