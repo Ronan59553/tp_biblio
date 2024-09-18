@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'github';
 $username = 'root';
-$password = '';
+$password = 'sio2024';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -50,7 +50,7 @@ try {
     <div class="container mx-auto mt-8 px-4">
         <h1 class="text-3xl font-bold mb-4">Ajouter un Livre</h1>
 
-        <form action="ajout_livre.php" method="POST" class="bg-white p-6 rounded-lg shadow-lg">
+        <form action="/TPGITHUB/admin.php" method="POST" class="bg-white p-6 rounded-lg shadow-lg">
             <div class="mb-4">
                 <label for="titre" class="block text-lg font-semibold mb-2">Titre du livre</label>
                 <input type="text" id="titre" name="titre" required class="p-2 border-2 border-gray-300 rounded-lg w-full">
