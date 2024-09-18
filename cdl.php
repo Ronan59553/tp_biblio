@@ -1,3 +1,44 @@
+<?php
+// Connexion à la base de données
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "github";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connexion échouée : " . $conn->connect_error);
+}
+
+// Vérifier si une demande de réservation est faite
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Obtenir les données envoyées depuis le formulaire ou le front-end
+    $id_livre = $_POST['id_livre'];
+    $id_utilisateur = $_POST['id_utilisateur']; // Assurez-vous que l'utilisateur est authentifié
+
+    // Vérifier si le livre est déjà réservé
+    $checkReservation = "SELECT * FROM reservations WHERE id_livre = $id_livre";
+    $result = $conn->query($checkReservation);
+
+    if ($result->num_rows > 0) {
+        // Si le livre est déjà réservé
+        echo json_encode(["status" => "error", "message" => "Ce livre est déjà réservé."]);
+    } else {
+        // Ajouter la réservation
+        $insertReservation = "INSERT INTO reservations (id_livre, id_utilisateur) VALUES ($id_livre, $id_utilisateur)";
+        if ($conn->query($insertReservation) === TRUE) {
+            echo json_encode(["status" => "success", "message" => "Livre réservé avec succès."]);
+        } else {
+            echo json_encode(["status" => "error", "message" => "Erreur lors de la réservation."]);
+        }
+    }
+}
+
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
