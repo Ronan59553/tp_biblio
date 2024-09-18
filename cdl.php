@@ -1,44 +1,3 @@
-<?php
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "github";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connexion échouée : " . $conn->connect_error);
-}
-
-// Vérifier si une demande de réservation est faite
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Obtenir les données envoyées depuis le formulaire ou le front-end
-    $id_livre = $_POST['id_livre'];
-    $id_utilisateur = $_POST['id_utilisateur']; // Assurez-vous que l'utilisateur est authentifié
-
-    // Vérifier si le livre est déjà réservé
-    $checkReservation = "SELECT * FROM reservations WHERE id_livre = $id_livre";
-    $result = $conn->query($checkReservation);
-
-    if ($result->num_rows > 0) {
-        // Si le livre est déjà réservé
-        echo json_encode(["status" => "error", "message" => "Ce livre est déjà réservé."]);
-    } else {
-        // Ajouter la réservation
-        $insertReservation = "INSERT INTO reservations (id_livre, id_utilisateur) VALUES ($id_livre, $id_utilisateur)";
-        if ($conn->query($insertReservation) === TRUE) {
-            echo json_encode(["status" => "success", "message" => "Livre réservé avec succès."]);
-        } else {
-            echo json_encode(["status" => "error", "message" => "Erreur lors de la réservation."]);
-        }
-    }
-}
-
-$conn->close();
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -51,7 +10,6 @@ $conn->close();
     </style>
 </head>
 <body class="bg-gray-100">
-
     <!-- Header -->
     <header class="bg-blue-600 text-white py-6 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
@@ -61,6 +19,9 @@ $conn->close();
             </div>
             <!-- Boutons de déconnexion et gestion admin -->
             <div class="flex space-x-4">
+            <a href="suppresion.php" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                    Suppresion
+                </a>
                 <a href="admin.php" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition">
                     Gestion Admin
                 </a>
@@ -70,7 +31,6 @@ $conn->close();
             </div>
         </div>
     </header>
-
     <!-- Main Content -->
     <main class="container mx-auto mt-8 px-4">
         <!-- Filter Section -->
@@ -98,7 +58,6 @@ $conn->close();
                 </div>
             </div>
         </div>
-
         <!-- Books Section -->
         <div id="books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Book Card 1 -->
@@ -115,7 +74,6 @@ $conn->close();
                     </div>
                 </div>
             </div>
-
             <!-- Book Card 2 -->
             <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Science-fiction" data-author="Serranon">
                 <img src="images/2.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
@@ -130,7 +88,6 @@ $conn->close();
                     </div>
                 </div>
             </div>
-
             <!-- Book Card 3 -->
             <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Roman" data-author="Serranow">
                 <img src="images/3.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
@@ -145,7 +102,6 @@ $conn->close();
                     </div>
                 </div>
             </div>
-
             <!-- Book Card 4 -->
             <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Aventure" data-author="Serranouille">
                 <img src="images/4.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
@@ -160,7 +116,6 @@ $conn->close();
                     </div>
                 </div>
             </div>
-
             <!-- Book Card 5 -->
             <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Science-fiction" data-author="Serranon">
                 <img src="images/5.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
@@ -175,7 +130,6 @@ $conn->close();
                     </div>
                 </div>
             </div>
-
             <!-- Book Card 6 -->
             <div class="book-card bg-white shadow-md rounded-lg overflow-hidden" data-genre="Roman" data-author="Serranow">
                 <img src="images/6.jpeg" alt="Couverture du livre" class="w-full h-[500px] object-cover">
@@ -192,32 +146,26 @@ $conn->close();
             </div>
         </div>
     </main>
-
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4 mt-12">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 Bibliothèque en Ligne. Tous droits réservés.</p>
         </div>
     </footer>
-
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const genreFilter = document.getElementById('genre');
             const authorFilter = document.getElementById('author');
             const bookCards = document.querySelectorAll('.book-card');
-
             function filterBooks() {
                 const selectedGenre = genreFilter.value;
                 const selectedAuthor = authorFilter.value;
-
                 bookCards.forEach(card => {
                     const cardGenre = card.getAttribute('data-genre');
                     const cardAuthor = card.getAttribute('data-author');
-
                     const genreMatch = !selectedGenre || cardGenre === selectedGenre;
                     const authorMatch = !selectedAuthor || cardAuthor === selectedAuthor;
-
                     if (genreMatch && authorMatch) {
                         card.style.display = 'block';
                     } else {
@@ -225,11 +173,9 @@ $conn->close();
                     }
                 });
             }
-
             genreFilter.addEventListener('change', filterBooks);
             authorFilter.addEventListener('change', filterBooks);
         });
     </script>
-
 </body>
 </html>
