@@ -35,14 +35,14 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Livres</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .table-container {
-            max-width: 1200px;
-        }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans flex items-center justify-center min-h-screen">
-    <div class="table-container mx-4 p-6 bg-white rounded-lg shadow-lg">
+<body class="bg-gray-100">
+    <!-- Bouton revenir en arrière -->
+    <a href="index.php" class="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+        Revenir en arrière
+    </a>
+
+    <div class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-lg">
         <h1 class="text-3xl font-semibold text-blue-600 mb-6">Liste des Livres</h1>
         
         <table class="w-full bg-gray-100 border border-gray-300 rounded-lg overflow-hidden">
@@ -69,7 +69,7 @@ $result = $conn->query($sql);
                         echo "<td class='py-3 px-4 border-b text-center'>
                             <form method='post' action=''>
                                 <input type='hidden' name='id_livre' value='" . $row['id_livres'] . "'>
-                                <input type='submit' name='delete' value='Supprimer' class='bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition duration-200'>
+                                <input type='submit' name='delete' value='Supprimer' class='bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-lg transition-colors duration-300'>
                             </form>
                         </td>";
                         echo "</tr>";
