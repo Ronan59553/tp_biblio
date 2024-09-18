@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 13 sep. 2024 à 13:03
+-- Généré le : mer. 18 sep. 2024 à 07:31
 -- Version du serveur : 10.11.4-MariaDB-1~deb12u1
 -- Version de PHP : 8.2.7
 
@@ -32,7 +32,8 @@ CREATE TABLE `Livres` (
   `titre` varchar(50) NOT NULL,
   `auteur` varchar(50) NOT NULL,
   `date_publi` date NOT NULL,
-  `genre` varchar(20) NOT NULL
+  `genre` varchar(20) NOT NULL,
+  `couverture` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -70,7 +71,8 @@ CREATE TABLE `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mot_de_passe`, `date_inscription`) VALUES
 (2, 'efzfezf', 'zfefezfz', 'moty@rer', '$2y$10$LWiPleglhKtkO2VPQ/e5deTf1Etw6cloLtkOrfrn3A8/O7CnAVQeu', '2024-09-11 09:06:51'),
 (5, 'Moty', 'Bertrand', 'motybebert@gmail.com', '$2y$10$9P4N23yN9A73q.DpBuMN2OxmG/VPWiCR.QCiG6OSnL6iKv9dbcjwy', '2024-09-11 09:19:11'),
-(6, 'Schaubroeck', 'Ronan', 'roschau59@gmail.com', '$2y$10$IxWdaXLBSGOVZzPWtDnM.Oz.MwxeiSmYMi7dzVqEyzdo.iyOrE5Oq', '2024-09-12 07:09:13');
+(6, 'Schaubroeck', 'Ronan', 'roschau59@gmail.com', '$2y$10$IxWdaXLBSGOVZzPWtDnM.Oz.MwxeiSmYMi7dzVqEyzdo.iyOrE5Oq', '2024-09-12 07:09:13'),
+(8, 'redoublant', 'sio', 'redoublantsio@edu.saintluc-cambrai.com', '$2y$10$MDcjoFQYT5J/MvooShfRMOxQxsNQjMTNv0DOiQJzcT/HCi.XCjbYW', '2024-09-17 07:54:07');
 
 --
 -- Index pour les tables déchargées
@@ -105,7 +107,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `Livres`
 --
 ALTER TABLE `Livres`
-  MODIFY `id_livres` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_livres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `reservations`
@@ -117,7 +119,7 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Contraintes pour les tables déchargées
