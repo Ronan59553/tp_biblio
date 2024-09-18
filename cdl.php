@@ -19,8 +19,11 @@
             </div>
             <!-- Boutons de déconnexion et gestion admin -->
             <div class="flex space-x-4">
-            <a href="suppresion.php" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition">
-                    Suppression
+            <a href="modifier.php" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                    modifier
+                </a>
+            <a href="delete.php" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                    Supprimer 
                 </a>
                 <a href="admin.php" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition">
                     Gestion Admin
