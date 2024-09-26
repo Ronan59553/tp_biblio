@@ -40,16 +40,6 @@ try {
             $imageData = null; // Aucun fichier téléchargé, on insère NULL
         }
 
-        $sql = "SELECT couverture FROM Livres WHERE id_livres = :id";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($row) {
-            header("Content-Type: image/jpeg");
-            echo $row['couverture'];
-        }
-
         // Insertion dans la base de données
         $sql = "INSERT INTO Livres (titre, auteur, date_publi, genre, couverture) VALUES (:titre, :auteur, :date_publi, :genre, :couverture)";
         $stmt = $conn->prepare($sql);
@@ -58,7 +48,6 @@ try {
         $stmt->bindParam(':date_publi', $date_publi);
         $stmt->bindParam(':genre', $genre);
         $stmt->bindParam(':couverture', $imageData, PDO::PARAM_LOB);
-
 
         // Exécution de la requête
         if ($stmt->execute()) {
@@ -120,6 +109,10 @@ try {
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Ajouter</button>
         </form>
 
+        <!-- Bouton Revenir en arrière -->
+        <div class="mt-4">
+            <a href="cdl.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">Revenir en arrière</a>
+        </div>
     </div>
 
 </body>
