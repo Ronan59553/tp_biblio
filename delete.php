@@ -38,7 +38,7 @@ $result = $conn->query($sql);
 </head>
 <body class="bg-gray-100">
     <!-- Bouton revenir en arrière -->
-    <a href="index.php" class="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+    <a href="cdl.php" class="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
         Revenir en arrière
     </a>
 

@@ -36,6 +36,9 @@ try {
                 <p class="text-lg mt-2">Consultez les livres disponibles</p>
             </div>
             <div class="flex space-x-4">
+                <a href="delete.php" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                    Supprimer
+                </a>
                 <a href="admin.php" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition">
                     Gestion Admin
                 </a>
@@ -64,6 +67,8 @@ try {
                     <div class="mt-4 flex space-x-4">
                         <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Voir plus</button>
                         <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">Réserver</button>
+                        <!-- Bouton Modifier -->
+                        <a href="modifier.php?id=<?= $livre['id_livres'] ?>" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Modifier</a>
                     </div>
                 </div>
             </div>
