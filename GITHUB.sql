@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
+<<<<<<< HEAD
 -- Généré le : mer. 18 sep. 2024 à 07:31
+=======
+-- Généré le : mer. 11 sep. 2024 à 06:31
+>>>>>>> connexion/inscription
 -- Version du serveur : 10.11.4-MariaDB-1~deb12u1
 -- Version de PHP : 8.2.7
 
@@ -18,7 +22,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+<<<<<<< HEAD
 -- Base de données : `github`
+=======
+-- Base de données : `GITHUB`
+>>>>>>> connexion/inscription
 --
 
 -- --------------------------------------------------------
@@ -32,6 +40,7 @@ CREATE TABLE `Livres` (
   `titre` varchar(50) NOT NULL,
   `auteur` varchar(50) NOT NULL,
   `date_publi` date NOT NULL,
+<<<<<<< HEAD
   `genre` varchar(20) NOT NULL,
   `couverture` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -47,6 +56,9 @@ CREATE TABLE `reservations` (
   `id_livre` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `date_reservation` timestamp NOT NULL DEFAULT current_timestamp()
+=======
+  `genre` varchar(20) NOT NULL
+>>>>>>> connexion/inscription
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -58,13 +70,18 @@ CREATE TABLE `reservations` (
 CREATE TABLE `utilisateurs` (
   `id` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
+<<<<<<< HEAD
   `prenom` varchar(20) NOT NULL,
+=======
+  `prenom` int(20) NOT NULL,
+>>>>>>> connexion/inscription
   `email` varchar(100) NOT NULL,
   `mot_de_passe` varchar(255) NOT NULL,
   `date_inscription` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
 -- Déchargement des données de la table `utilisateurs`
 --
 
@@ -75,6 +92,8 @@ INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mot_de_passe`, `dat
 (8, 'redoublant', 'sio', 'redoublantsio@edu.saintluc-cambrai.com', '$2y$10$MDcjoFQYT5J/MvooShfRMOxQxsNQjMTNv0DOiQJzcT/HCi.XCjbYW', '2024-09-17 07:54:07');
 
 --
+=======
+>>>>>>> connexion/inscription
 -- Index pour les tables déchargées
 --
 
@@ -85,6 +104,7 @@ ALTER TABLE `Livres`
   ADD PRIMARY KEY (`id_livres`);
 
 --
+<<<<<<< HEAD
 -- Index pour la table `reservations`
 --
 ALTER TABLE `reservations`
@@ -93,6 +113,8 @@ ALTER TABLE `reservations`
   ADD KEY `id_utilisateur` (`id_utilisateur`);
 
 --
+=======
+>>>>>>> connexion/inscription
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
@@ -104,6 +126,7 @@ ALTER TABLE `utilisateurs`
 --
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT pour la table `Livres`
 --
 ALTER TABLE `Livres`
@@ -131,6 +154,12 @@ ALTER TABLE `utilisateurs`
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`id_livre`) REFERENCES `Livres` (`id_livres`),
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateurs` (`id`);
+=======
+-- AUTO_INCREMENT pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> connexion/inscription
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
